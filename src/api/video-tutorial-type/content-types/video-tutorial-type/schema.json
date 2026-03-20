@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "video_tutorial_types",
+  "info": {
+    "singularName": "video-tutorial-type",
+    "pluralName": "video-tutorial-types",
+    "displayName": "Video Tutorial"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks",
+      "required": true
+    },
+    "duration": {
+      "type": "decimal"
+    },
+    "youtubeid": {
+      "type": "string",
+      "required": true
+    },
+    "tags": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
