@@ -493,6 +493,38 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
+  collectionName: 'social_medias';
+  info: {
+    displayName: 'Social Media';
+    pluralName: 'social-medias';
+    singularName: 'social-media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    facebook: Schema.Attribute.String;
+    instagram: Schema.Attribute.String;
+    linkedIn: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-media.social-media'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    twitter: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    youtube: Schema.Attribute.String;
+  };
+}
+
 export interface ApiTermsAndConditionTermsAndCondition
   extends Struct.SingleTypeSchema {
   collectionName: 'terms_and_conditions';
@@ -1073,6 +1105,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::category.category': ApiCategoryCategory;
       'api::privacy.privacy': ApiPrivacyPrivacy;
+      'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::terms-and-condition.terms-and-condition': ApiTermsAndConditionTermsAndCondition;
       'api::video-tutorial-type.video-tutorial-type': ApiVideoTutorialTypeVideoTutorialType;
       'plugin::content-releases.release': PluginContentReleasesRelease;
