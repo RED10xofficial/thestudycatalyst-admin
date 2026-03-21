@@ -485,7 +485,7 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
       'api::privacy.privacy'
     > &
       Schema.Attribute.Private;
-    privacy: Schema.Attribute.RichText;
+    privacy: Schema.Attribute.Blocks;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -547,7 +547,7 @@ export interface ApiTermsAndConditionTermsAndCondition
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    terms: Schema.Attribute.RichText;
+    terms: Schema.Attribute.Blocks;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

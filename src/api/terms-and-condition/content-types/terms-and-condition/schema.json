@@ -12,7 +12,7 @@
   "pluginOptions": {},
   "attributes": {
     "terms": {
-      "type": "richtext"
+      "type": "blocks"
     }
   }
 }
