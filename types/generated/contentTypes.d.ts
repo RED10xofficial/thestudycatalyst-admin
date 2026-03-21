@@ -465,34 +465,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
-  collectionName: 'privacies';
-  info: {
-    displayName: 'privacy';
-    pluralName: 'privacies';
-    singularName: 'privacy';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::privacy.privacy'
-    > &
-      Schema.Attribute.Private;
-    privacy: Schema.Attribute.Blocks;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
   collectionName: 'social_medias';
   info: {
@@ -522,35 +494,6 @@ export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     youtube: Schema.Attribute.String;
-  };
-}
-
-export interface ApiTermsAndConditionTermsAndCondition
-  extends Struct.SingleTypeSchema {
-  collectionName: 'terms_and_conditions';
-  info: {
-    displayName: 'terms and conditions';
-    pluralName: 'terms-and-conditions';
-    singularName: 'terms-and-condition';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::terms-and-condition.terms-and-condition'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    terms: Schema.Attribute.Blocks;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
   };
 }
 
@@ -1104,9 +1047,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::category.category': ApiCategoryCategory;
-      'api::privacy.privacy': ApiPrivacyPrivacy;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
-      'api::terms-and-condition.terms-and-condition': ApiTermsAndConditionTermsAndCondition;
       'api::video-tutorial-type.video-tutorial-type': ApiVideoTutorialTypeVideoTutorialType;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
