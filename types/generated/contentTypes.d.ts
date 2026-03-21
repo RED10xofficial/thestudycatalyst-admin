@@ -465,12 +465,12 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
-  collectionName: 'privacies';
+export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
+  collectionName: 'privacy_policies';
   info: {
-    displayName: 'privacy';
-    pluralName: 'privacies';
-    singularName: 'privacy';
+    displayName: 'privacy policy';
+    pluralName: 'privacy-policies';
+    singularName: 'privacy-policy';
   };
   options: {
     draftAndPublish: true;
@@ -482,10 +482,10 @@ export interface ApiPrivacyPrivacy extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::privacy.privacy'
+      'api::privacy-policy.privacy-policy'
     > &
       Schema.Attribute.Private;
-    privacy: Schema.Attribute.Blocks;
+    privacy_policy: Schema.Attribute.Blocks;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -525,13 +525,13 @@ export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiTermsAndConditionTermsAndCondition
+export interface ApiTermsConditionTermsCondition
   extends Struct.SingleTypeSchema {
-  collectionName: 'terms_and_conditions';
+  collectionName: 'terms_conditions';
   info: {
-    displayName: 'terms and conditions';
-    pluralName: 'terms-and-conditions';
-    singularName: 'terms-and-condition';
+    displayName: 'terms conditions';
+    pluralName: 'terms-conditions';
+    singularName: 'terms-condition';
   };
   options: {
     draftAndPublish: true;
@@ -543,11 +543,11 @@ export interface ApiTermsAndConditionTermsAndCondition
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::terms-and-condition.terms-and-condition'
+      'api::terms-condition.terms-condition'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    terms: Schema.Attribute.Blocks;
+    terms_condition: Schema.Attribute.Blocks;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1104,9 +1104,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::category.category': ApiCategoryCategory;
-      'api::privacy.privacy': ApiPrivacyPrivacy;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
-      'api::terms-and-condition.terms-and-condition': ApiTermsAndConditionTermsAndCondition;
+      'api::terms-condition.terms-condition': ApiTermsConditionTermsCondition;
       'api::video-tutorial-type.video-tutorial-type': ApiVideoTutorialTypeVideoTutorialType;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
